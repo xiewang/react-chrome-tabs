@@ -1,0 +1,24 @@
+{
+  "name": "react-chrome-tabs",
+  "version": "0.1.0",
+  "private": false,
+  "dependencies": {
+    "classnames": "^2.2.5",
+    "draggabilly": "^2.2.0",
+    "lodash": "^4.17.5",
+   
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-runtime": "^6.26.0",
+     "react": "^16.3.1",
+    "react-dom": "^16.3.1",
+    "react-scripts": "1.1.4"
+  }
+}

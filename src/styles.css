@@ -1,0 +1,194 @@
+.chrome_tabs .chrome_tab {
+    width: 243px;
+    -webkit-app-region: no-drag;
+}
+.chrome_tabs .chrome_tab:nth-child(1) {
+    transform: translate3d(0px, 0, 0)
+}
+.chrome_tabs .chrome_tab:nth-child(2) {
+    transform: translate3d(229px, 0, 0)
+}
+.chrome_tabs {
+    -webkit-app-region: drag;
+    box-sizing: border-box;
+    position: relative;
+    font-size: 10px;
+    height: 4.2em;
+    background: linear-gradient(#dad9da, #d9d8d9);
+    padding: 1em 1.2em 0.45em 1.2em;
+    border-radius: 0.5em 0.5em 0 0;
+    box-shadow: 0 0.05em #b7b7b7;
+    overflow: hidden;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+.chrome_tabs * {
+    box-sizing: inherit;
+    font-family: inherit;
+}
+.chrome_tabs .chrome_tabs_bottom_bar {
+    position: absolute;
+    bottom: 0;
+    height: 0.45em;
+    left: 0;
+    width: 100%;
+    background: #f2f2f2;
+    box-shadow: 0 -0.05em rgba(0,0,0,0.27);
+    z-index: 20;
+}
+.chrome_tabs .chrome_tabs_content {
+    position: relative;
+    width: 'calc(100vh-62px)';
+    height: 100%;
+    margin-left: 62px;
+    overflow: hidden;
+}
+.chrome_tabs .chrome_tab {
+    position: absolute;
+    left: 0;
+    height: 2.8em;
+    width: 24em;
+    border: 0;
+    margin: 0;
+    z-index: 1;
+}
+.chrome_tabs .chrome_tab,
+.chrome_tabs .chrome_tab * {
+    user-select: none;
+    cursor: default;
+}
+.chrome_tabs .chrome_tab .chrome_tab_background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+}
+.chrome_tabs .chrome_tab .chrome_tab_background > svg {
+    width: 100%;
+    height: 100%;
+}
+.chrome_tabs .chrome_tab .chrome_tab_background > svg .chrome_tab_shadow {
+    fill: none;
+    stroke: rgba(0,0,0,0.27);
+    stroke-width: 0.5px;
+}
+.chrome_tabs .chrome_tab .chrome_tab_background > svg .chrome_tab_background {
+    fill: #d0d0d0;
+    transform: translateX(0.25px) translateY(0.25px);
+}
+.chrome_tabs .chrome_tab.chrome_tab_current {
+    z-index: 999;
+}
+.chrome_tabs .chrome_tab.chrome_tab_current .chrome_tab_background > svg .chrome_tab_background {
+    fill: #f2f2f2;
+}
+.chrome_tabs .chrome_tab.chrome_tab_just_added {
+    top: 10px;
+    animation: chrome_tab_just_added 120ms forwards ease-in-out;
+}
+@-moz-keyframes chrome_tab_just_added {
+    to {
+        top: 0;
+    }
+}
+@-webkit-keyframes chrome_tab_just_added {
+    to {
+        top: 0;
+    }
+}
+@-o-keyframes chrome_tab_just_added {
+    to {
+        top: 0;
+    }
+}
+@keyframes chrome_tab_just_added {
+    to {
+        top: 0;
+    }
+}
+.chrome_tabs.chrome_tabs_sorting .chrome_tab:not(.chrome_tab_currently_dragged),
+.chrome_tabs:not(.chrome_tabs_sorting) .chrome_tab.chrome_tab_just_dragged {
+    transition: transform 120ms ease-in-out;
+}
+.chrome_tabs .chrome_tab_favicon {
+    position: relative;
+    margin-left: 1.6em;
+    height: 1.6em;
+    width: 1.6em;
+    background-size: 1.6em;
+    margin-top: 0.6em;
+    z-index: 3;
+    display: inline-block;
+    vertical-align: top;
+    pointer-events: none;
+}
+.chrome_tabs .chrome_tab_title {
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    color: #222;
+    padding: 0 0.25em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 1.2em;
+    margin-top: 0.5em;
+    max-width: calc(100% - 5em);
+    pointer-events: none;
+}
+.chrome_tabs .chrome_tab_close {
+    position: absolute;
+    width: 1.4em;
+    height: 1.4em;
+    border-radius: 50%;
+    z-index: 2;
+    right: 1.4em;
+    top: 0.7em;
+}
+.chrome_tabs .chrome_tab_close::before {
+    content: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14'><path stroke='#5a5a5a' stroke-linecap='round' stroke-width='1.125' d='M4 4 L10 10 M10 4 L4 10'></path></svg>");
+    position: absolute;
+    display: block;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+.chrome_tabs .chrome_tab_close:hover::before,
+.chrome_tabs .chrome_tab_close:hover:active::before {
+    content: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14'><path stroke='#fff' stroke-linecap='round' stroke-width='1.2' d='M4 4 L10 10 M10 4 L4 10'></path></svg>");
+}
+.chrome_tabs .chrome_tab_close:hover {
+    background: #e25c4b;
+}
+.chrome_tabs .chrome_tab_close:hover:active {
+    background: #b74a3b;
+}
+
+
+.chrome_tabs.chrome_tabs_dark_theme {
+    background: linear-gradient(#001529, #1d1f21);
+    box-shadow: 0 0.05em #282828;
+}
+.chrome_tabs.chrome_tabs_dark_theme .chrome_tabs_bottom_bar {
+    background: #505050;
+    box-shadow: 0 -0.05em rgba(0,0,0,0.5);
+}
+.chrome_tabs.chrome_tabs_dark_theme .chrome_tab .chrome_tab_background > svg .chrome_tab-shadow {
+    stroke: rgba(0,0,0,0.5);
+}
+.chrome_tabs.chrome_tabs_dark_theme .chrome_tab .chrome_tab_background > svg .chrome_tab_background {
+    fill: #002140;
+}
+.chrome_tabs.chrome_tabs_dark_theme .chrome_tab.chrome_tab_current .chrome_tab_background > svg .chrome_tab_background {
+    fill: #0557a5;
+}
+.chrome_tabs.chrome_tabs_dark_theme .chrome_tab .chrome_tab_title {
+    -webkit-font-smoothing: antialiased;
+    color: #fff;
+}
+.chrome_tabs.chrome_tabs_dark_theme .chrome_tab .chrome_tab_close:not(:hover)::before {
+    content: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14'><path stroke='#cfcfcf' stroke-linecap='round' stroke-width='1.125' d='M4 4 L10 10 M10 4 L4 10'></path></svg>");
+}
