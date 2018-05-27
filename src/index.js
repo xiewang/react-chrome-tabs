@@ -16,7 +16,8 @@ class Tabs extends Component {
     constructor() {
         super();
         this.state = {
-            currentKey: 0
+            currentKey: 0,
+            dark: false
         };
         this.draggabillyInstances = []
 
@@ -44,19 +45,13 @@ class Tabs extends Component {
                     the.setCurrentTab(v);
             });
         });
+        this.setState({
+            dark : this.props.theme == 'dark'
+        })
     }
 
     shouldComponentUpdate(nextProps, nextState) {
-        if (!this.state.add) {
-            return false;
-        }
-        this.state.add = false;
-        this.state.path = nextProps.location.pathname;
-        this._addNewTab({
-            key: nextProps.tabs.tabs.length - 1,
-            title: _.find(nextProps.tabs.tabs, (o)=>{return o.key == nextProps.tabs.tabs.length - 1}).name ,
-            favicon: require('./default-favicon.png')
-        });
+
         return true;
     }
 
@@ -318,7 +313,7 @@ class Tabs extends Component {
     render() {
 
         return (
-            <div className={cs(styles.chrome_tabs, styles.chrome_tabs_dark_theme)}>
+            <div className={cs(styles.chrome_tabs, this.state.dark && styles.chrome_tabs_dark_theme)}>
                 <div className={styles.chrome_tabs_content}>
                     <div className={cs(styles.chrome_tab, styles.chrome_tab_current)}>
                         <div className={styles.chrome_tab_background}>
